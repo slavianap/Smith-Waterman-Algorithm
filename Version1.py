@@ -36,10 +36,35 @@ def ScoringMatrix(seq1, seq2, MATCH = 1, MISMATCH = -1, GAP = -1):
             M[i, j] = max(0, diagonal_score, above_score, left_score)
     return M
             
-# 
+
 #def backtrack()            
     
 
-# Testing    
-seq1, seq2 = 'GGTTGACTA', 'TGTTACGG'
-L = ScoringMatrix(seq1, seq2)
+# Reading the fasta file and keeping the sequence's name and sequence
+def FastaReader(sequence):
+    fasta = []
+    final = []
+    with open(sequence) as f:
+        for row in f:
+            row = row.strip()
+            # If the string starts with the ">" then the name of the sequence
+            # is taken, skipping the greater-than sign
+            if row.startswith(">"):
+                seq_name = row[1:]
+                continue
+            # Removing white spaces in the sequence name as required
+            seq_name = ''.join(seq_name.split())
+            sequence = row
+            fasta.append(sequence)
+    if fasta:
+        final.append(''.join(fasta))
+    for i, line in enumerate(final):
+        seq_name, line
+    return seq_name, line
+
+
+# Importing two required fasta sequences
+file_1_name, file_1 = FastaReader("Sequence1.fasta")
+file_2_name, file_2  = FastaReader("Sequence2.fasta")
+# Running the StoringMatrix function
+matrix = ScoringMatrix(file_1, file_2)
