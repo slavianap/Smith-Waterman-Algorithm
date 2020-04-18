@@ -1,2 +1,2 @@
-# sw_algorithm
-Smith Waterman local alignment
+# The Smith Waterman local alignment
+
