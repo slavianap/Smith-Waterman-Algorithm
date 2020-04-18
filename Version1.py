@@ -29,7 +29,11 @@ def fasta_reader(sequence_file):
 def scoring_matrix(seq1, seq2):
     row = len(seq1) + 1
     col = len(seq2) + 1
-    matrix = np.zeros(shape = (row, col), dtype = 'int')    
+    matrix = np.zeros(shape = (row, col), dtype = 'int')   
+    
+    maximum_score = 0
+    maximum_score_location = (0,0)
+    
     for i in range(1, row):
         for j in range(1, col):
             # Calculating the diagonal score (match score)
@@ -44,9 +48,21 @@ def scoring_matrix(seq1, seq2):
             
             # Taking the highest score 
             matrix[i, j] = max(0, diagonal_score, vertical_score, horizontal_score)
-    return matrix
+        
+        # Tracking the cell with the maximum score
+        if matrix[i][j] >= maximum_score:
+            maximum_score = matrix[i][j]
+            maximum_score_location = (i, j) 
+            
+    return matrix, maximum_score_location
+
+
             
 #def traceback()            
+
+
+
+
 
         
 # Importing two required fasta sequences
@@ -54,4 +70,4 @@ file_1_name, file_1 = fasta_reader("Sequence1.fasta")
 file_2_name, file_2  = fasta_reader("Sequence2.fasta")
 
 # Running the Smith Waterman local alignment
-M = scoring_matrix(file_1, file_2)
+test_matrix, test_maximum_score_location = scoring_matrix(file_1, file_2)
