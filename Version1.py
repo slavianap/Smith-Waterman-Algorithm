@@ -4,7 +4,7 @@
 
 LIFE97011 - Computing
 Python Programming - Assessed Exercise No. 3
-Task: Smith Waterman (SW) local alignment
+Task: Smith Waterman local alignment
 @Author: Slaviana Pavlovich
 @CID: 01739756
 
@@ -18,7 +18,7 @@ MATCH = 1
 MISMATCH = -1
 GAP = -1
 
-# Reading the fasta file and keeping the required sequence's name and sequence
+# Reading the fasta file and keeping the formatted sequence's name and sequence
 def fasta_reader(sequence_file):
     lines = open(sequence_file).readlines()
     sequence_name_row = lines[0][1:]
