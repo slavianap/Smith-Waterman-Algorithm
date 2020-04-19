@@ -1,7 +1,7 @@
 # The Smith Waterman local alignment
 
 - **Author:** Slaviana Pavlovich
-- **Acknowledgment:** This code was submitted for the "Computing" module's exam as part of MSc in Bioinformatics and Theoretical Systems Biology at Imperial College London
+- **Acknowledgment:** This code was submitted for the exam in the "Computing" module as part of MSc in Bioinformatics and Theoretical Systems Biology at Imperial College London
 - **Date:** April 19th 2020
 - **Language:** Python 3.7
 
