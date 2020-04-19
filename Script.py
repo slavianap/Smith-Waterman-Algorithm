@@ -6,7 +6,6 @@ LIFE97011 - Computing
 Python Programming - Assessed Exercise No. 3
 Task: Smith Waterman local alignment
 @Author: Slaviana Pavlovich
-@CID: 01739756
 
 """
 
