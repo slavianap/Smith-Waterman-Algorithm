@@ -48,25 +48,22 @@ def SW(seq1, seq2):
             vertical_score = matrix[i - 1, j] + GAP
             # Calculating the horizontal gap score
             horizontal_score = matrix[i, j - 1] + GAP
-            
+            # Taking the highest score 
+            matrix[i, j] = max(0, diagonal_score, vertical_score, horizontal_score)
             # Tracking where the cell's value is coming from    
             if matrix[i][j] == 0: 
                 tracing_matrix[i][j] = STOP
-            elif matrix[i][j] == horizontal_score: 
+            if matrix[i][j] == horizontal_score: 
                 tracing_matrix[i][j] = LEFT
-            elif matrix[i][j] == vertical_score: 
+            if matrix[i][j] == vertical_score: 
                 tracing_matrix[i][j] = UP
-            else: 
-                tracing_matrix[i][j] = DIAGONAL            
-            
-            # Taking the highest score 
-            matrix[i, j] = max(0, diagonal_score, vertical_score, horizontal_score)
-         
-        # Tracking the cell with the maximum score
-        if matrix[i][j] >= maximum_score:
-            maximum_i = i
-            maximum_j = j
-            maximum_score = matrix[i][j]
+            if matrix[i][j] == diagonal_score: 
+                tracing_matrix[i][j] = DIAGONAL 
+            # Tracking the cell with the maximum score
+            if matrix[i][j] >= maximum_score:
+                maximum_i = i
+                maximum_j = j
+                maximum_score = matrix[i][j]
            
     # Assigning to i and j the cell's position with the highest score
     i, j = maximum_i, maximum_j
@@ -81,7 +78,7 @@ def SW(seq1, seq2):
             current_aligned_seq1 = seq1[i - 1]
             current_aligned_seq2 = '-'
             i = i - 1            
-        else:
+        elif tracing_matrix[i, j] == LEFT:
             current_aligned_seq1 = '-'
             current_aligned_seq2 = seq2[j - 1]
             j = j - 1
