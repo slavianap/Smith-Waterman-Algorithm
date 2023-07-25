@@ -38,8 +38,8 @@ def smith_waterman(seq1, seq2):
     # Generating the empty matrices for storing scores and tracing
     row = len(seq1) + 1
     col = len(seq2) + 1
-    matrix = np.zeros(shape=(row, col), dtype=np.int)  
-    tracing_matrix = np.zeros(shape=(row, col), dtype=np.int)  
+    matrix = np.zeros(shape=(row, col), dtype=np.int32)  
+    tracing_matrix = np.zeros(shape=(row, col), dtype=np.int32)  
     
     # Initialising the variables to find the highest scoring cell
     max_score = -1
